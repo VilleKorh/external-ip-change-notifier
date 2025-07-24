@@ -1,0 +1,29 @@
+# Sample crontab entries for External IP Change Notifier
+# 
+# To add these to your crontab:
+# 1. Edit your crontab: crontab -e
+# 2. Copy one of the lines below
+# 3. Replace /Users/villekorhonen/projects/external-ip-change-notifier with your actual path
+#
+# IMPORTANT: Make sure to update the path to match your installation directory!
+
+# Check every 5 minutes (most frequent - good for testing)
+# */5 * * * * /Users/villekorhonen/projects/external-ip-change-notifier/run_ip_monitor.sh
+
+# Check every 15 minutes (recommended for most users)
+*/15 * * * * /Users/villekorhonen/projects/external-ip-change-notifier/run_ip_monitor.sh
+
+# Check every 30 minutes (less frequent)
+# */30 * * * * /Users/villekorhonen/projects/external-ip-change-notifier/run_ip_monitor.sh
+
+# Check hourly (least frequent)
+# 0 * * * * /Users/villekorhonen/projects/external-ip-change-notifier/run_ip_monitor.sh
+
+# Alternative: Direct Python execution (less robust)
+# */15 * * * * cd /Users/villekorhonen/projects/external-ip-change-notifier && source venv/bin/activate && python main.py >> logs/cron.log 2>&1
+
+# Notes:
+# - The wrapper script (run_ip_monitor.sh) is recommended as it provides better error handling
+# - Logs are automatically written to logs/cron.log and logs/ip_history.txt
+# - Make sure the script path is absolute and accessible by cron
+# - Test the script manually before adding to cron: ./run_ip_monitor.sh
