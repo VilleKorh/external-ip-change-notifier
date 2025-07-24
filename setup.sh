@@ -6,7 +6,9 @@
 
 set -e  # Exit on any error
 
-PROJECT_DIR="/Users/villekorhonen/projects/external-ip-change-notifier"
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$SCRIPT_DIR"
 VENV_DIR="$PROJECT_DIR/venv"
 
 echo "🚀 Setting up External IP Change Notifier..."
